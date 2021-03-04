@@ -5,11 +5,11 @@
 #include <SDL_opengl.h>
 
 namespace GE {
-	class triangleRenderer {
+	class TriangleRenderer {
 	public:
-		triangleRenderer();
 
-		virtual ~triangleRenderer();
+		TriangleRenderer();
+		virtual ~TriangleRenderer();
 
 		void init();
 

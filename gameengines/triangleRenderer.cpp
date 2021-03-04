@@ -11,9 +11,9 @@ namespace GE {
 		0.0f,1.0f
 	};
 
-	triangleRenderer::triangleRenderer() { }
+	TriangleRenderer::TriangleRenderer() { }
 
-	triangleRenderer::~triangleRenderer() { }
+	TriangleRenderer::~TriangleRenderer() { }
 
 	void displayShaderCompilerError(GLuint shaderid) {
 
@@ -32,14 +32,14 @@ namespace GE {
 		}
 	}
 
-	void triangleRenderer::init() {
+	void TriangleRenderer::init() {
 		//shader code
 		GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
 		const GLchar* V_ShaderCode[] = {
-			"version 140\n"
+			"#version 140\n"
 			"in vec2 vertexPos2D:\n"
-			"void_main(){\n"
+			"void main(){\n"
 			"gl_Position = vec4 (vertexPos2D.x,vertexPos.2D.y,0,1);\n"
 			"}\n"
 		};
@@ -64,9 +64,10 @@ namespace GE {
 		GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
 		const GLchar* F_ShaderCode[] = {
-			"version 140\n"
-			"in vec2 fragmentColour:\n"
-			"void_main(){\n"
+			"#version 140\n"
+			"out vec4 fragmentColor:\n"
+			"void main()\n"
+			"{\n"
 			"fragmentColour = vec4(1.0,0.0,0.0, 1.0);\n"
 			"}\n"
 		};
@@ -109,9 +110,9 @@ namespace GE {
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
 	}
 
-	void triangleRenderer::update(){ }
+	void TriangleRenderer::update(){ }
 
-	void triangleRenderer::draw() {
+	void TriangleRenderer::draw() {
 
 		glUseProgram(programId);
 
@@ -128,7 +129,7 @@ namespace GE {
 		glUseProgram(0);
 	}
 
-	void triangleRenderer::destroy() {
+	void TriangleRenderer::destroy() {
 		glDeleteProgram(programId);
 
 		glDeleteBuffers(1, &vboTriangle);

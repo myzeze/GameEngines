@@ -26,7 +26,7 @@ namespace GE {
 
 		SDL_GLContext glContext;
 
-		triangleRenderer* triangle;
+		TriangleRenderer* triangle;
 	};
 
 	void display_info_message(const char*);

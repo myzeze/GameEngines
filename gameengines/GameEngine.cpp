@@ -5,7 +5,7 @@ using namespace GE;
 
 using namespace std;
 
-triangleRenderer* triangle;
+TriangleRenderer* triangle;
 
 namespace GE {
 
@@ -59,10 +59,10 @@ namespace GE {
 			return false;
 		}
 
-		return true;
-
-		triangle = new triangleRenderer();
+		triangle = new TriangleRenderer();
 		triangle->init();
+
+		return true;
 	}
 
 	bool GameEngine::keep_running() {
@@ -84,21 +84,21 @@ namespace GE {
 		glClearColor(0.392f, 0.584f, 0.929f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		//glBegin(GL_TRIANGLES);
-		//	glColor3f(1.0f, 0.0f, 0.0f);
-		//	glVertex2f(-1.0f, 0.0f);
-		//	glColor3f(1.0f, 0.0f, 0.0f);
-		//	glVertex2f(1.0f, 0.0f);
-		//	glColor3f(1.0f, 0.0f, 0.0f);
-		//	glVertex2f(0.0f, 1.0f);
+		glBegin(GL_TRIANGLES);
+			glColor3f(1.0f, 0.0f, 0.0f);
+			glVertex2f(-1.0f, 0.0f);
+			glColor3f(1.0f, 0.0f, 0.0f);
+			glVertex2f(1.0f, 0.0f);
+			glColor3f(1.0f, 0.0f, 0.0f);
+			glVertex2f(0.0f, 1.0f);
 
-		//	glColor3f(0.0f, 1.0f, 0.0f);
-		//	glVertex2f(-1.0f, 0.0f);
-		//	glColor3f(0.0f, 1.0f, 0.0f);
-		//	glVertex2f(0.0f, -1.0f);
-		//	glColor3f(0.0f, 1.0f, 0.0f);
-		//	glVertex2f(1.0f, 0.0f);
-		//glEnd();
+			glColor3f(0.0f, 1.0f, 0.0f);
+			glVertex2f(-1.0f, 0.0f);
+			glColor3f(0.0f, 1.0f, 0.0f);
+			glVertex2f(0.0f, -1.0f);
+			glColor3f(0.0f, 1.0f, 0.0f);
+			glVertex2f(1.0f, 0.0f);
+		glEnd();
 
 		triangle->draw();
 
